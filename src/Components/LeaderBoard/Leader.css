@@ -1,0 +1,106 @@
+/* Leaderboard Container */
+*{
+    font-family: poppins, sans-serif;
+}
+.leaderboard-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+  
+  /* Title Section */
+  .leaderboard-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    padding-left: 8px;
+    
+  }
+  
+  .star-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #4CAF50;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+  }
+  
+  .title-text {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  /* Card Styles */
+  .leaderboard-card {
+    background-color: #EDEDED;
+    padding: 0;
+    border-radius: 32px;
+    overflow: hidden;
+  }
+  
+  /* Header Row */
+  .header-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    border-bottom: 1px solid #d2d0d0;
+    padding: 16px 24px;
+    background-color: #EDEDED;
+  }
+  
+  .header-cell {
+    font-weight: 500;
+    color: #666;
+  }
+  
+  /* Data Rows */
+  .data-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 12px 24px;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .data-row:last-child {
+    border-bottom: none;
+  }
+  
+  .rank-cell {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Medal Styles */
+  .medal {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .medal-1, .medal-2, .medal-3 {
+    background-color: #4CAF50;
+  }
+  
+  /* Text Styles */
+  .top-student, .top-score, .top-time {
+    display: flex;
+    align-items: center;
+    color: #4CAF50;
+  }
+  
+  .regular-rank, .regular-student, .regular-score, .regular-time {
+    display: flex;
+    align-items: center;
+    color: #666;
+  }

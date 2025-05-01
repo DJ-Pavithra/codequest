@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import Aptitude1 from './pages/Aptitude.jsx';
-
+import LeaderBoard from './pages/LeaderBoard.jsx';
 const App = () => {
     const questionsData = [
         {
@@ -25,6 +25,7 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/aptitude" element={<Aptitude1 questions={questionsData}/>} />
+      <Route path="/leaderboard" element={<LeaderBoard />} />
     </Routes>
   );
 };
