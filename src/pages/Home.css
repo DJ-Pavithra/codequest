@@ -1,0 +1,191 @@
+.navbar {
+    position: fixed; 
+    top: 16px;
+    left: 16px; 
+    right: 16px;
+    z-index: 1000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(95, 165, 240, 0.45); 
+    backdrop-filter: blur(10px);
+    margin: 8px 16px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.39);
+    transition: background-color 0.3s ease; 
+  }
+
+  .navbar:hover {
+    background-color: rgba(95, 165, 240, 0.6); 
+  }
+
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+
+  .navMenu {
+    display: flex;
+    gap: 16px;
+    font-size: 22px;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .navMenuActive {
+    color: #1e72e7;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .navMenuItem {
+    color: #333333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .navMenuItem:hover {
+    color: #1e72e7; 
+  }
+
+  .userIcon {
+    background-color: #eee;
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease; 
+  }
+
+  .userIcon:hover {
+    background-color: #ddd; 
+  }
+
+  .mainContent {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 100px;
+  }
+
+  .leftContent {
+    flex: 1;
+    min-width: 300px;
+    margin-bottom: 32px;
+  }
+
+  .heading {
+    text-align: left;
+    font-size: 60px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    background: linear-gradient(to left, #007bff, #007bff, #3a3a3a);
+    background-clip: text;
+    color: transparent;
+  }
+
+  .description {
+    color: rgb(255, 167, 3);
+    font-weight: 600;
+    margin-bottom: 32px;
+    text-align: left;
+    max-width: 450px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 300px;
+    flex-wrap: wrap;
+  }
+  
+  .button {
+    text-decoration: none;
+    background-color: #007AFF;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 30px;
+    font-family: monospace;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .button:hover {
+    background-color: #005bb5;
+    transform: scale(1.05); 
+  }
+  
+  .rightContent {
+    flex: 1;
+    position: relative;
+  }
+  
+  .illustration {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .illustrationImage {
+    width: 600px;
+    height: auto;
+  }
+  
+  .featureCardsContainer {
+    max-width: 1200px;
+    margin: 32px auto;
+    padding: 0 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+  
+  .featureCard {
+    background-color: white;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.347);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+  }
+  
+  .featureCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.4); 
+  }
+  
+  .featureHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .iconContainer {
+    padding: 12px;
+    border-radius: 8px;
+    width: 48px;
+    height: 48px;
+  }
+    .featureTitle {
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 12px;
+    text-decoration: none;
+  }
+  
+
+  .featureDescription {
+    color: #555;
+  }
