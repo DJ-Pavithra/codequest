@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import Aptitude1 from './pages/Aptitude.jsx';
 import LeaderBoard from './pages/LeaderBoard.jsx';
+import Challenge from './pages/Challenge.jsx';
 const App = () => {
     const questionsData = [
         {
@@ -26,6 +27,7 @@ const App = () => {
       <Route path="/" element={<Home />} />
       <Route path="/aptitude" element={<Aptitude1 questions={questionsData}/>} />
       <Route path="/leaderboard" element={<LeaderBoard />} />
+      <Route path="/challenges" element={<Challenge />} />
     </Routes>
   );
 };

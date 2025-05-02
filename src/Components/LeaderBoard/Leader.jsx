@@ -19,7 +19,7 @@ const Leader = () => {
       </div>
       
       <Card className="leaderboard-card">
-        {/* Header row */}
+
         <div className="header-row">
           <Text className="header-cell">Rank</Text>
           <Text className="header-cell">Student</Text>
@@ -27,7 +27,6 @@ const Leader = () => {
           <Text className="header-cell">Time</Text>
         </div>
         
-        {/* Data rows */}
         {data.map((item, index) => (
           <div key={index} className="data-row">
             <div className="rank-cell">
