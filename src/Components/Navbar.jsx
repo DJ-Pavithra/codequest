@@ -24,8 +24,9 @@ const Navbar1 = () => {
 
       <div className={`navMenu ${isMenuOpen ? 'open' : ''}`}>
         <Link to="/" className="navMenuActive">Home</Link>
-        <Link to="/challenges" className="navMenuItem">Challenges</Link>
         <Link to="/aptitude" className="navMenuItem">Aptitude</Link>
+        <Link to="/code" className="navMenuItem">Coding</Link>
+        <Link to="/challenges" className="navMenuItem">Challenges</Link>
         <Link to="/leaderboard" className="navMenuItem">Leaderboard</Link>
       </div>
 

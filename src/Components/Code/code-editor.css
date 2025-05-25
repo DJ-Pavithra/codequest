@@ -1,0 +1,8 @@
+/* CodeEditor.css */
+.code-editor-container {
+  height: 100%;
+  width: 100%;
+  border: 1px solid #d1d5db; /* Tailwind: border */
+  border-radius: 0.375rem;    /* Tailwind: rounded-md */
+  overflow: hidden;
+}

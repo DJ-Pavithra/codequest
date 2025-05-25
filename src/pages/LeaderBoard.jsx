@@ -1,6 +1,6 @@
 import { Stack } from '@mantine/core';
 import Leader from '../Components/LeaderBoard/Leader';
-// import PerformanceChart from '../Components/LeaderBoard/PerformanceChart';
+import PerformanceChart from '../Components/LeaderBoard/PerformanceChart';
 // import Heatmap from '../Components/LeaderBoard/Heatmap';
 import Goals from '../Components/LeaderBoard/Goals';
 import Streak from '../Components/LeaderBoard/Streak';
@@ -12,7 +12,7 @@ const DashboardPage = () => {
     <Stack spacing="lg">
     <Navbar />
       <Leader />
-      {/* <PerformanceChart /> */}
+      <PerformanceChart />
       {/* <Heatmap /> */}
       <Goals />
       <Streak /> 

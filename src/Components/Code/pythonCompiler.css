@@ -1,0 +1,117 @@
+.python-compiler {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  padding: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+  .python-compiler {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+.editor-card,
+.testcase-card {
+  background-color: #EDEDED;
+  padding: 1.5rem;
+  height: 100%;
+  border-radius: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tabs-list {
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.5rem;
+}
+
+.tabs-list button {
+  background: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.tabs-list button[aria-selected="true"] {
+  color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+.tabs-list button:hover {
+  color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.05);
+}
+
+.problem-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.problem-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.problem-description {
+  max-width: none;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.code-tab {
+  height: calc(100vh - 300px);
+  min-height: 500px;
+}
+
+.testcase-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.testcase-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.run-button-wrapper {
+  margin-top: 1.5rem;
+}
+
+.run-button {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, #4facfe, #00f2fe);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.run-button:hover {
+  background: linear-gradient(to right, #005bea, #00c6fb);
+  transform: translateY(-1px);
+}
+
+.run-button:disabled {
+  background: #e5e7eb;
+  cursor: not-allowed;
+  transform: none;
+}

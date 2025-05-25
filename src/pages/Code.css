@@ -1,0 +1,42 @@
+/* CodePage.css */
+.code-main {
+  min-height: 100vh;
+  background-color: #f9fafb; /* light mode bg */
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .code-main {
+    padding: 2rem;
+  }
+}
+
+.code-main.dark {
+  background-color: #111827; /* dark mode bg */
+}
+
+.code-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.code-heading {
+  font-size: 1.875rem; /* text-3xl */
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 1.5rem;
+}
+
+.code-heading.dark {
+  color: #ffffff;
+}
+
+.code-description {
+  color: #4b5563;
+  margin-bottom: 2rem;
+}
+
+.code-description.dark {
+  color: #d1d5db;
+}

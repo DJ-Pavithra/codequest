@@ -1,0 +1,35 @@
+/* Console.css */
+.console-container {
+  background-color: #1f2937;
+  color: #f3f4f6;
+  padding: 1.25rem;
+  border-radius: 12px;
+  height: calc(100vh - 300px);
+  min-height: 500px;
+  overflow: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.console-container pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.console-placeholder {
+  color: #9ca3af;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: italic;
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 2rem;
+  border: 1px dashed #374151;
+  border-radius: 8px;
+  background-color: rgba(31, 41, 55, 0.5);
+}

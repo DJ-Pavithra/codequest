@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Text, MantineProvider } from '@mantine/core';
 import { BarChart } from '@mantine/charts';
-
+import '@mantine/charts/styles.css';
 const chartData = [
   { month: 'January', value: 800 },
   { month: 'February', value: 1100 },
@@ -14,6 +14,7 @@ const chartData = [
 const PerformanceChart = () => {
   return (
     <MantineProvider>
+      Hello World
       <Card withBorder p="md" radius="md">
         <Text size="lg" mb="md">Performance</Text>
         <BarChart
