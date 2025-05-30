@@ -2,17 +2,34 @@ import React, { useState } from 'react';
 import loginImg from '../assets/image1.svg';
 import ImgCirlce from '../assets/man-developing-website-on-desk.svg';
 import './Login.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+    const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Login attempt:', { username, password, rememberMe });
-  };
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        const response = await axios.post('http://localhost:8080/api/auth/login', {
+          username,
+          password
+        });
+        
+        // Store the JWT token in localStorage
+        localStorage.setItem('token', response.data.accessToken);
+        
+        // Redirect to dashboard or home page
+        navigate('/dashboard');
+      } catch (error) {
+        console.error('Login failed:', error);
+        // Handle error (show error message to user)
+      }
+    };
 
   const handleGoogleLogin = () => {
     console.log('Google login clicked');
