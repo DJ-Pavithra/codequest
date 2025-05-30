@@ -6,7 +6,7 @@ import LeaderBoard from './pages/LeaderBoard.jsx';
 import Challenge from './pages/Challenge.jsx';
 import Code from './pages/Code.jsx';
 import Login from './pages/Login.jsx';
-
+import Aptitudeadmin from './pages/Aptitudeadmin.jsx';
 const App = () => {
     const questionsData = [
         {
@@ -33,6 +33,7 @@ const App = () => {
       <Route path="/leaderboard" element={<LeaderBoard />} />
       <Route path="/challenges" element={<Challenge />} />
       <Route path="/code" element={<Code />} />
+      <Route path="/admin" element={<Aptitudeadmin />} />
     </Routes>
   );
 };
