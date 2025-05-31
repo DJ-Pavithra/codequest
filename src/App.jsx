@@ -7,6 +7,9 @@ import Challenge from './pages/Challenge.jsx';
 import Code from './pages/Code.jsx';
 import Login from './pages/Login.jsx';
 import Aptitudeadmin from './pages/Aptitudeadmin.jsx';
+import ProtectedRoute from './Components/ProtectedRoute';
+import SignUpPage from './pages/SignUp.jsx';
+
 const App = () => {
     const questionsData = [
         {
@@ -29,11 +32,32 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/aptitude" element={<Aptitude1 questions={questionsData}/>} />
-      <Route path="/leaderboard" element={<LeaderBoard />} />
-      <Route path="/challenges" element={<Challenge />} />
-      <Route path="/code" element={<Code />} />
-      <Route path="/admin" element={<Aptitudeadmin />} />
+      <Route path="/aptitude" element={
+        <ProtectedRoute>
+          <Aptitude1 questions={questionsData}/>
+        </ProtectedRoute>
+      } />
+      <Route path="/leaderboard" element={
+        <ProtectedRoute>
+          <LeaderBoard />
+        </ProtectedRoute>
+      } />
+      <Route path="/challenges" element={
+        <ProtectedRoute>
+          <Challenge />
+        </ProtectedRoute>
+      } />
+      <Route path="/code" element={
+        <ProtectedRoute>
+          <Code />
+        </ProtectedRoute>
+      } />
+      <Route path="/admin" element={
+        <ProtectedRoute>
+          <Aptitudeadmin />
+        </ProtectedRoute>
+      } />
+      <Route path="/signup" element={<SignUpPage />} />
     </Routes>
   );
 };

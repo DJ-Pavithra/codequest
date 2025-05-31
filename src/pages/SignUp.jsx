@@ -5,65 +5,49 @@ import './Login.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
+const SignUpPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-        const response = await axios.post(
-          `http://localhost:8083/login?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
-        );
-
-        // Store the JWT token in localStorage
-        localStorage.setItem('token', response.data.accessToken);
-
-        // Redirect to dashboard or home page
-        navigate('/');
-      } catch (error) {
-        console.error('Login failed:', error);
-        // Handle error (show error message to user)
-      }
-    };
-
-  const handleGoogleLogin = () => {
-    console.log('Google login clicked');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (password !== confirmPassword) {
+      alert("Passwords do not match!");
+      return;
+    }
+    try {
+      const response = await axios.post(
+        `http://localhost:8083/signup?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+      );
+      alert('Sign up successful! Please log in.');
+      navigate('/login');
+    } catch (error) {
+      console.error('Sign up failed:', error);
+      alert('Sign up failed. Try a different username.');
+    }
   };
 
   return (
     <div className="login-container">
-     
-       <div className="illustration">
-        <img src={loginImg} alt="Login Visual" className="login-image" />
-
+      <div className="illustration">
+        <img src={loginImg} alt="Sign Up Visual" className="login-image" />
         <div className="overlay-content">
-            <div className="illustration-circle">
+          <div className="illustration-circle">
             <img src={ImgCirlce} alt="Circle Illustration" />
-            </div>
-            <p className="tagline">Your all in one Placement Preparation Website</p>
+          </div>
+          <p className="tagline">Join CodeQuest for your placement journey!</p>
         </div>
-        </div>
-
+      </div>
       <div className="right-section">
         <div className="login-form-container">
           <div className="header">
             <h1 className="logo">CODEQUEST</h1>
-            <h2 className="welcome">WELCOME</h2>
-            <p className="subtitle">Enter your details to log in to your account</p>
+            <h2 className="welcome">SIGN UP</h2>
+            <p className="subtitle">Create your account</p>
           </div>
-
-          <div className="google-login">
-            <button className="google-btn" onClick={handleGoogleLogin}>
-              <div className="google-icon">G</div>
-              <span>Log in with Google</span>
-            </button>
-            <p className="divider-text">Or with your credentials</p>
-          </div>
-
           <div className="login-form">
             <div className="form-group">
               <label htmlFor="username">Username</label>
@@ -75,7 +59,6 @@ const LoginPage = () => {
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <div className="password-input-container">
@@ -95,26 +78,22 @@ const LoginPage = () => {
                 </button>
               </div>
             </div>
-
-            <div className="form-options">
-              <label className="remember-me">
-                <input
-                  type="checkbox"
-                  checked={rememberMe}
-                  onChange={(e) => setRememberMe(e.target.checked)}
-                />
-                <span className="checkmark"></span>
-                Remember me
-              </label>
-              <a href="#" className="forgot-password">Forgot password</a>
+            <div className="form-group">
+              <label htmlFor="confirmPassword">Confirm Password</label>
+              <input
+                type={showPassword ? "text" : "password"}
+                id="confirmPassword"
+                placeholder="Re-enter password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
             </div>
-
             <button type="button" className="login-btn" onClick={handleSubmit}>
-              Log In
+              Sign Up
             </button>
-          </div>
-          <div className="register-link">
-            <p>Don't have an account? <a href="/signup">Register</a></p>
+            <p style={{ marginTop: 10 }}>
+              Already have an account? <a href="/login">Log In</a>
+            </p>
           </div>
           <div className="footer">
             <p className="powered-by">Powered by <a href="#">CodeQuest</a></p>
@@ -125,4 +104,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignUpPage;
