@@ -1,0 +1,188 @@
+/* Add below or replace in CodeQuestEntry.css */
+
+.cq-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cq-center-card {
+  background: rgba(255,255,255,0.97);
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(76, 81, 255, 0.13);
+  padding: 40px 32px 32px 32px;
+  max-width: 400px;
+  width: 100%;
+  animation: fadeInUp 0.7s cubic-bezier(.23,1.01,.32,1) both;
+}
+
+.cq-card-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.cq-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #5d4e75;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.cq-card-header h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.cq-subtitle {
+  color: #7c7c7c;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.cq-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.cq-user-type-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cq-label {
+  font-weight: 600;
+  color: #4b4b4b;
+  margin-bottom: 4px;
+}
+
+.cq-user-type-options {
+  display: flex;
+  gap: 10px;
+}
+
+.cq-user-type-btn {
+  flex: 1;
+  padding: 10px 0;
+  border: none;
+  border-radius: 8px;
+  background: #f3f4f6;
+  color: #5d4e75;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-size: 1rem;
+}
+
+.cq-user-type-btn.active,
+.cq-user-type-btn:hover {
+  background: linear-gradient(90deg, #667eea 60%, #764ba2 100%);
+  color: #fff;
+}
+
+.cq-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cq-input {
+  padding: 12px 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: border 0.2s;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.cq-input:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+.cq-input.error {
+  border-color: #ef4444;
+}
+
+.cq-error {
+  color: #ef4444;
+  font-size: 0.92rem;
+  margin-top: 2px;
+}
+
+.cq-submit-btn {
+  margin-top: 8px;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #10b981 60%, #059669 100%);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(16,185,129,0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.cq-submit-btn:disabled {
+  background: #bdbdbd;
+  cursor: not-allowed;
+}
+
+.cq-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #fff;
+  border-top: 2px solid #10b981;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.cq-instructions {
+  background: #f8fafc;
+  border-radius: 10px;
+  padding: 18px 16px;
+  margin-top: 24px;
+  border-left: 4px solid #667eea;
+}
+
+.cq-instructions h4 {
+  margin: 0 0 8px 0;
+  color: #4b4b4b;
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.cq-instructions ul {
+  margin: 0;
+  padding-left: 18px;
+  color: #5d4e75;
+  font-size: 0.98rem;
+}
+
+.cq-instructions li {
+  margin-bottom: 6px;
+}
+
+@media (max-width: 600px) {
+  .cq-center-card {
+    padding: 22px 6vw 18px 6vw;
+    max-width: 98vw;
+  }
+}

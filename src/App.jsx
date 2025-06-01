@@ -6,9 +6,9 @@ import LeaderBoard from './pages/LeaderBoard.jsx';
 import Challenge from './pages/Challenge.jsx';
 import Code from './pages/Code.jsx';
 import Login from './pages/Login.jsx';
-import Aptitudeadmin from './pages/Aptitudeadmin.jsx';
 import ProtectedRoute from './Components/ProtectedRoute';
 import SignUpPage from './pages/SignUp.jsx';
+import Entry from './pages/EnterCode.jsx';
 
 const App = () => {
     const questionsData = [
@@ -52,12 +52,9 @@ const App = () => {
           <Code />
         </ProtectedRoute>
       } />
-      <Route path="/admin" element={
-        <ProtectedRoute>
-          <Aptitudeadmin />
-        </ProtectedRoute>
-      } />
+     
       <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/enter-code" element={<Entry />} />
     </Routes>
   );
 };

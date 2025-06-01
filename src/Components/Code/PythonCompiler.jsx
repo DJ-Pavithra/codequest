@@ -2,12 +2,11 @@
 "use client"
 
 import { useState } from "react"
-import  CodeEditor from "./CodeEditor"
+import CodeEditor from "./CodeEditor"
 import { TestCases } from "./TestCases.jsx"
 import { Results } from "./Result"
 import { Console } from "./Console"
-import { executePythonCode } from "./lib/Python-interpretor.js"
-import "./pythonCompiler.css" // External CSS import
+import "./pythonCompiler.css"
 
 export function PythonCompiler({ defaultProblem }) {
   const [problem, setProblem] = useState(defaultProblem)
@@ -18,6 +17,7 @@ export function PythonCompiler({ defaultProblem }) {
   const [isRunning, setIsRunning] = useState(false)
   const [activeTab, setActiveTab] = useState("problem")
 
+  // Updated: Run code using Judge0 backend API
   const handleRunCode = async () => {
     setIsRunning(true)
     setActiveTab("results")
@@ -29,23 +29,43 @@ export function PythonCompiler({ defaultProblem }) {
 
     for (const testCase of testCases) {
       try {
-        const result = await executePythonCode(code, testCase, problem.functionName)
-        newResults.push(result)
-
-        if (result.consoleOutput) {
-          allConsoleOutput += `--- Test Case ${testCase.id} ---\n${result.consoleOutput}\n\n`
+        const payload = {
+          code: code,
+          stdin: testCase.input || null // send null if no input
         }
+
+        const response = await fetch("http://localhost:8083/api/code/execute", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        })
+
+        const data = await response.json()
+        // Judge0 returns output in data.stdout, errors in data.stderr or data.compile_output
+        const actualOutput = data.stdout !== null && data.stdout !== undefined ? data.stdout : ""
+        const errorOutput = data.stderr || data.compile_output || data.message || ""
+        const passed = actualOutput.trim() === (testCase.expectedOutput || "").trim()
+
+        newResults.push({
+          input: testCase.input,
+          expectedOutput: testCase.expectedOutput,
+          actualOutput,
+          passed,
+          error: errorOutput,
+          consoleOutput: actualOutput
+        })
+
+        allConsoleOutput += `--- Test Case ${testCase.id} ---\n${actualOutput}${errorOutput ? "\n" + errorOutput : ""}\n\n`
       } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : "Unknown error occurred"
         newResults.push({
           input: testCase.input,
           expectedOutput: testCase.expectedOutput,
           actualOutput: "",
           passed: false,
-          error: errorMessage,
-          consoleOutput: "",
+          error: error.message,
+          consoleOutput: ""
         })
-        allConsoleOutput += `--- Test Case ${testCase.id} ---\nERROR: ${errorMessage}\n\n`
+        allConsoleOutput += `--- Test Case ${testCase.id} ---\nERROR: ${error.message}\n\n`
       }
     }
 
@@ -152,6 +172,7 @@ export function PythonCompiler({ defaultProblem }) {
             <button onClick={handleRunCode} className="run-button" disabled={isRunning}>
               {isRunning ? "Running..." : "Run Code"}
             </button>
+            
           </div>
         </div>
       </div>

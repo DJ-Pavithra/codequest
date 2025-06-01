@@ -106,7 +106,6 @@ const LoginPage = () => {
                 <span className="checkmark"></span>
                 Remember me
               </label>
-              <a href="#" className="forgot-password">Forgot password</a>
             </div>
 
             <button type="button" className="login-btn" onClick={handleSubmit}>
